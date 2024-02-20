@@ -32,12 +32,25 @@ class Battery:
         # printing a statement describing the battery size
         print(f"This car has {self.battery_size} kWh battery.")
 
+    def get_range(self):
+        # Printing the statement about the range of this battery provides
+        global range
+        if self.battery_size == 70:
+            range = 240
+        elif self.battery_size == 85:
+            range = 270
+
+        message = f"This car can go approximately {range}"
+        message += " miles on a full charge."
+
+        print(message)
+
 
 # A child class of Car class
 class ElectricCar(Car):
-    # Represents aspects of car , specific to electric vehicle
+    # Represents aspects of car, specific to electric vehicle
     def __init__(self, make, model, year):
-        # Initialize attribute of the parent class
+        # Initialize the attribute of the parent class
         super().__init__(make, model, year)
 
         self.battery = Battery()
